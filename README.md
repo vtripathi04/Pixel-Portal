@@ -1,1 +1,1 @@
-Currently Project will contain Only APIs for the Pixel-Portal
+Currently Project will contain Only APIs for Pixel-Portal
