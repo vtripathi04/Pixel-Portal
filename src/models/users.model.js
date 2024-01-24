@@ -6,18 +6,21 @@ const userSchema = new mongoose.Schema(
 
     firstname: {
         type: String,
-        required: true
+        required: true,
+        trim: true
     },
 
     lastname: {
         type:String, 
         required:true,
-        default: ""
+        trim: true,
+        default: "",
     },
 
     email: {
         type: String,
         required: true,
+        trim: true,
         unique:true
     },
 
@@ -34,6 +37,10 @@ const userSchema = new mongoose.Schema(
     },
 
     profileImage: {
+        type: String
+    },
+
+    refreshToken: {
         type: String
     }
 
