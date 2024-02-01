@@ -9,6 +9,13 @@ cloudinary.config({
 });
 
 
+
+const getImagePublicIdCloudinary = function(img_url){
+    const img_url_arr = img_url.split("/")
+    const publicId = img_url_arr[img_url_arr.length-1].replace(".png", "")
+    return publicId
+}
+
 const uploadOnCloudinary = async (localFilePath) => {
 
     try{
@@ -33,6 +40,18 @@ const uploadOnCloudinary = async (localFilePath) => {
 }
 
 
-export { uploadOnCloudinary };
+const deleteFromCloudinary = async (imgcloudinaryurl) => {
+
+
+    cloudinary.uploader
+    .destroy(getImagePublicIdCloudinary(imgcloudinaryurl), {resource_type: 'image'})
+    .then(result => console.log(result)).catch(err => console.log("Error Deleting Image from cloudinary:", err))
+
+}
+
+export { 
+    uploadOnCloudinary,
+    deleteFromCloudinary 
+};
 
 
